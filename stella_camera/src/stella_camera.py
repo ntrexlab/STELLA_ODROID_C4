@@ -9,10 +9,9 @@ from sensor_msgs.msg import Image
 from cv_bridge import CvBridge, CvBridgeError
 
 if __name__=="__main__":
-    os.system('sudo modprobe bcm2835-v4l2')
     cap = cv2.VideoCapture(0)
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH,640)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT,480)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH,320)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT,240)
         
     rospy.init_node('stella_camera_node')
     bridge = CvBridge()
