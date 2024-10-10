@@ -21,7 +21,7 @@ void ntrex_can_fifo::MD_input(char *str)
 {
     if (!strcmp(str, "move"))
     {
-        sprintf(write_buf, "mvc=%0.3f,%0.3f\r\n", left_rpm, rigth_rpm); //
+        sprintf(write_buf, "mvc=%0.3f,%0.3f\r\n", left_rpm, right_rpm); //
 
         for (int i = 0; i < strlen(write_buf); i++)
         {
@@ -44,7 +44,7 @@ void ntrex_can_fifo::MD_input(char *str)
 
 void ntrex_can_fifo::chatterCallback(const geometry_msgs::Twist::ConstPtr &msg)
 {
-    calculate_wheel_vel(msg->linear.x, msg->angular.z, &left_rpm, &rigth_rpm);
+    calculate_wheel_vel(msg->linear.x, msg->angular.z, &left_rpm, &right_rpm);
 
     linear_x = msg->linear.x;
     angular_ = msg->angular.z;
